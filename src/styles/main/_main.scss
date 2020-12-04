@@ -225,6 +225,13 @@ body {
     color: #f1f1f1;
   }
 }
+.busLogo {
+  width:200px;
+  height:auto;
+  background-color:white;
+  padding:5px;
+  box-shadow:3px 3px 3px indigo;
+}
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
