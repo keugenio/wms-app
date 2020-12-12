@@ -8,10 +8,10 @@ export default function TopMenu(props) {
         <div class="collapse navbar-collapse mr-4" id="navbarNav">
           <ul class="navbar-nav" style={{color:"white"}}>
             <li class="nav-item">
-              <a class="nav-link" href ><i className="fas fa-envelope-open-text"></i></a>
+              <a class="nav-link" href="mailto:jinouye@wirems.net" ><i className="fas fa-envelope-open-text"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href ><i class="fas fa-phone-square"></i></a>
+              <a class="nav-link" href="tel:(925)785-3144" ><i class="fas fa-phone-square"></i></a>
             </li>
           </ul>
         </div>

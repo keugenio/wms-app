@@ -1,22 +1,73 @@
 import React from "react";
-import WMSCard from '../components/WMSCard';
+import { useTrail, a } from 'react-spring';
 
 export default function Certifications(props) { 
-  const body=`
-    <blockquote class="blockquote">
-      Everyone expects their wireless devices to perform at high levels at all times, which is why we build high-performance DAS systems. Whether at work or at play, staying connected to friends and family is a part of life. At WMS, our efficient project management and innovative designs ensure critical dates are met with high-performance service. We have successfully completed the equivalent of more than $20 billion in DAS projects.
-    </blockquote>
-    <div class="row d-flex justify-content-center ">
-      <img class="company_icon" src="./img/wms1.png"/>
-      <img class="company_icon" src="./img/das-project/das_project_8.png"/>
-      <img class="company_icon" src="./img/das-project/das_project_10.png"/>
-      <img class="company_icon" src="./img/salesforce.png"/>
-    </div>
-  `
 
   return (
-    <div>
-      <WMSCard title="Certifications" body={body} />
+    <div style={styles.rowStyles}>
+      <div className="card  bg-indigo-light" style={{width: "90%"}}>
+        <div className="card-title text-left display-4 pl-4">Certifications</div>
+        <div className="card-body bg-indigo-light">
+          <Body />
+        </div>
+      </div>
     </div>
   )
+}
+
+function Body(){
+  return (
+    <div className ="row">    
+        <ul>
+          <Trail open={true}>
+            <li style={styles.liStyles}>iBwave - Certification Program</li>
+            <li style={styles.liStyles}>BICSI - Certified In Building Engineering Technologist</li>
+            <li style={styles.liStyles}>BICSI - Quality Assurance and Contractual Compliance</li>                    
+            <li style={styles.liStyles}>Vendor Certifications (DAS OEM, DC Power, Fiber, PIM, RF)</li>
+            <li style={styles.liStyles}>Telcordia - Installation Quality for Telecom Facilities</li>   
+          </Trail>                              
+        </ul>       
+  </div>       
+  )
+}
+
+function Trail({ open, children, ...props }) {
+  const items = React.Children.toArray(children)
+  const trail = useTrail(items.length, {
+    config: { mass: 5, tension: 2000, friction: 200 },
+    opacity: open ? 1 : 0,
+    x: open ? 0 : 20,
+    height: open ? 80 : 0,
+    from: { opacity: 0, x: 20, height: 0 },
+  })
+  return (
+    <div className="trails-main" {...props}>
+      <div>
+        {trail.map(({ x, height, ...rest }, index) => (
+          <a.div
+            key={items[index]}
+            className="trails-text"
+            style={{ ...rest, transform: x.interpolate((x) => `translate3d(0,${x}px,0)`) }}>
+            <a.div style={{ height }}>{items[index]}</a.div>
+          </a.div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const styles={
+  rowStyles:{
+    position: "absolute",
+    width: "90%",
+    left: "10%",
+    top:"25%",
+    color: "rgb(255, 165, 0)"
+  },
+  liStyles:{
+    color:"orange",
+    fontSize:"1.5rem",
+    textAlign:"left"
+  }
+
 }

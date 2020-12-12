@@ -6,7 +6,7 @@ export default function HeroText(props) {
   console.log("show hero:", show);
   const fadeStyles = useSpring({
     config:{ ...config.gentle},
-    from: { opacity:0, position:"absolute", width:"100%", left:0, zIndex:1001 },
+    from: { opacity:0, position:"absolute", width:"100%", left:0 },
     to: { opacity: show ? 1:0},
 
   })
