@@ -49,25 +49,27 @@ function Main() {
   return (
     <div>
       <TopMenu show={!showHero} />
-      <div id="outer-container" className="layout">
-        <div id="mySidenav" className="sidenav">
-          <MenuItemButton buttonName="What We Do" handleOnClick={handleOnClick} />
-          <MenuItemButton buttonName="Project Design & Engineering" handleOnClick={handleOnClick} />
-          <MenuItemButton buttonName="Program & Project Management" handleOnClick={handleOnClick} />
-          <MenuItemButton buttonName="Construction Management" handleOnClick={handleOnClick} />
-          <MenuItemButton buttonName="Certification" handleOnClick={handleOnClick} />     
-          <MenuItemButton buttonName="About WMS" handleOnClick={handleOnClick} />                  
-          <MenuButton />
+      <div className="layout">
+        <div id="outer-container" className="layout-inside">
+          <div id="mySidenav" className="sidenav">
+            <MenuItemButton buttonName="What We Do" handleOnClick={handleOnClick} />
+            <MenuItemButton buttonName="Program & Project Management" handleOnClick={handleOnClick} />            
+            <MenuItemButton buttonName="Project Design & Engineering" handleOnClick={handleOnClick} />
+            <MenuItemButton buttonName="Construction Management" handleOnClick={handleOnClick} />
+            <MenuItemButton buttonName="Certification" handleOnClick={handleOnClick} />     
+            <MenuItemButton buttonName="About WMS" handleOnClick={handleOnClick} />                  
+            <MenuButton />
+          </div>
+          <main id="main">
+            <div id="overlay"></div>
+            <section className="hero d-flex">
+              <div>
+                <HeroText show={showHero}/>
+                <MenuMainComponent currentMenuComponent={currentMenuComponent} />
+              </div>
+            </section>
+          </main>
         </div>
-        <main id="main">
-          <div id="overlay"></div>
-          <section className="hero">
-            <div>
-              <HeroText show={showHero}/>
-              <MenuMainComponent currentMenuComponent={currentMenuComponent} />
-            </div>
-          </section>
-        </main>
       </div>
     </div>
   );

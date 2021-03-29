@@ -1,5 +1,10 @@
 @import '../var.scss';
 
+$gray:#6F7E84;
+$orange: #CC6633;
+$green: #33CC66;
+$dark-green: #196633;
+
 :root {
   --ccft-cs-background: #000;
   --ccft-cs-on-surface: #fff;
@@ -25,14 +30,12 @@ body {
   font-family: var(--ccft-ts-primary);
   margin: 0;
 }
-
+#outer-container {
+  width: 105%;
+}
 .layout {
-  background-image: url(https://source.unsplash.com/3ha-RuNKnuQ/1600x900);
-  background-position: 0 0;
-  background-size: cover;
-  height: 100vh;
-  overflow: hidden;
   position: relative;
+  height: 100vh;
   a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -44,6 +47,20 @@ body {
   a:hover {
     color: #f1f1f1;
   }
+}
+.layout::before{
+  content: "";
+  top: 0;
+  left: 5%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(https://source.unsplash.com/A77Y_xYkq6c/1600x900);
+  background-size: cover;
+  filter: blur(4px);
+}
+.layout-inside{
+  position: relative;
 }
 
 .layout.nav--active main {
@@ -66,20 +83,17 @@ body {
 }
 
 .hero {
-  position: absolute;
   height: 100vh;
-  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(75,0,130,.5);
 }
 
 .hero-title {
   color: #fff;
-  font-family: var(--ccft-ts-secondary);
-  font-weight: 400;
-  font-size: 4.75rem;
+  font-family: var(--ccft-ts-primary);
+  font-weight: 700;
+  font-size: 3.75rem;
   line-height: 1.2;
   margin-left: auto;
   margin-right: auto;
@@ -89,8 +103,8 @@ body {
 
 .hero-title em {
   display: block;
-  font-size: 2rem;
-  font-style: normal;
+  font-size: 1.75rem;
+  font-weight: 300;
   line-height: 1.2;
 }
 
@@ -143,10 +157,10 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: rgb(255, 165, 0)!important;
+  color: darkslategray!important;
   display: block;
   transition: 0.3s;
-  text-shadow: 5px 5px 5px black;
+  text-shadow: 1px 2px 2px $dark-green;
   cursor: pointer;
   line-height: 1.5rem;
 }
@@ -170,7 +184,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
     
-  background-color: rgba(76, 0, 130, 0.75);;
+  background-color: rgba($green,.8);
   overflow-x: hidden; /* Disable horizontal scroll */
   //padding-top: 60px; /* Place content 60px from the top */
   transition: 0.25s; /* 0.5 second transition effect to slide in the sidenav */
@@ -201,8 +215,8 @@ body {
   padding: 3px;
   transition: .25s;
 }
-.bg-indigo-light{
-  background-color: $indigo-light!important;
+.bg-gray-translucent{
+  background-color: rgba($gray, .75)!important;
 }
 .company_icon{
   max-height: 100px;
@@ -216,7 +230,7 @@ body {
   position: relative;
 }
 #overlay {
-  background-color: indigo;
+  background-color:rgba($gray,.4);
   position: absolute;
   height: 100vh;
   width: 100vw;
@@ -228,14 +242,32 @@ body {
   }
 }
 .busLogo {
-  width:200px;
+  width:7rem;
   height:auto;
   background-color:white;
   padding:5px;
-  box-shadow:3px 3px 3px indigo;
+  box-shadow:3px 3px 3px $green;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+.card-title{
+  font-size: 2.5rem;
+  background-color: rgba($gray, .4);
+  text-shadow: 2px 3px $dark-green;
+}
+img.img-fluid {
+    box-shadow : 3px 3px 3px $dark-green;
+    border: thin solid $green;
+}
+.navbar-brand {
+  text-shadow: 2px 2px $dark-green;
+}
+.nav-link i {
+  text-shadow: 2px 2px $dark-green;
+}
+.display-4{
+  font-size: 2.5rem;
 }

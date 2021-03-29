@@ -17,9 +17,7 @@ function Body() {
       <div className="row" style={{borderRight:"solid thin #fff"}}>
         <div className="col-xs-12 col-lg-10 col-md-12 my-auto" align="center">
           <div>
-              <img className="img-fluid rounded-circle" src="./img/profile.jpeg" alt="Jay" style={{
-                boxShadow : "3px 3px 3px indigo",
-                border: "thin solid indigo"}} />
+              <img className="img-fluid rounded-circle" src="./img/profile.jpeg" alt="Jay"/>
               <p className="display-4">Jay Inouye</p> 
               <p className="display-5">President</p>
           </div>

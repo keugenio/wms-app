@@ -1,23 +1,21 @@
 import React from "react";
 import { useTrail, a } from 'react-spring';
+import WMSCard from './WMSCard';
 
 export default function Certifications(props) { 
 
-  return (
-    <div style={styles.rowStyles}>
-      <div className="card  bg-indigo-light" style={{width: "90%"}}>
-        <div className="card-title text-left display-4 pl-4">Certifications</div>
-        <div className="card-body bg-indigo-light">
-          <Body />
-        </div>
-      </div>
+  return (    
+    <div>
+      <WMSCard title="Certifications" body={<Body open={true} />} />
     </div>
+
+
   )
 }
 
 function Body(){
   return (
-    <div className ="row">    
+    <div style={styles.rowStyles} >    
         <ul>
           <Trail open={true}>
             <li style={styles.liStyles}>iBwave - Certification Program</li>
@@ -58,16 +56,13 @@ function Trail({ open, children, ...props }) {
 
 const styles={
   rowStyles:{
-    position: "absolute",
-    width: "90%",
-    left: "10%",
-    top:"25%",
-    color: "rgb(255, 165, 0)"
+    width:'75vw'
   },
   liStyles:{
     color:"orange",
     fontSize:"1.5rem",
-    textAlign:"left"
+    textAlign:"left",
+    textShadow:"1px 2px #196633"
   }
 
 }
